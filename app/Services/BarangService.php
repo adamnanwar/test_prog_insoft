@@ -32,7 +32,7 @@ class BarangService
         return $this->api()->get("{$this->base}/get_barang")->json() ?? [];
     }
 
-    // Cari barang by ID — tidak ada endpoint khusus, ambil dari list
+    // Cari barang by ID, ambil dari list
     public function find(string|int $id): array
     {
         $all = $this->getAll();

@@ -114,7 +114,7 @@ catatan:
 2. jangan ubah app_key
 3. user tidak akan logout kalau dilakukan dengan benar
 
-**tugas 3 — processimage job**
+**tugas 3. processimage job**
 
 alur proses:
 
@@ -146,7 +146,7 @@ ProcessImage::dispatchBatch([
 ], $userId);
 
 
-**tugas 4 — queue prioritization**
+**tugas 4. queue prioritization**
 
 saya menggunakan 3 jenis queue:
 
@@ -186,7 +186,7 @@ ProcessImage::dispatch($id, $path, $userId)->onQueue('default');
 NotifyImageReady::dispatch($id)->onQueue('high');
 
 
-**tugas 5 — retry, backoff, dead-letter, rate limiting**
+**tugas 5. retry, backoff, dead-letter, rate limiting**
 
 **retry dan backoff**
 

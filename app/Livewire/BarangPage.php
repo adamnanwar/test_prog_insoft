@@ -18,13 +18,13 @@ class BarangPage extends Component
     public string $flashMessage = '';
     public string $flashType = 'success';
 
-    // Muat data saat komponen dimount
+    // load data saat komponen dimount
     public function mount(): void
     {
         $this->loadData();
     }
 
-    // Ambil data barang dari API
+    // ambil data barang dari API
     public function loadData(): void
     {
         $service = new BarangService();
@@ -34,7 +34,7 @@ class BarangPage extends Component
         $this->barangs = isset($data['id_barang']) ? [$data] : (is_array($data) ? array_values($data) : []);
     }
 
-    // Simpan barang baru atau update
+    // simpan barang baru atau update
     public function save(): void
     {
         $service = new BarangService();
@@ -51,7 +51,7 @@ class BarangPage extends Component
         $this->loadData();
     }
 
-    // Buka modal edit dengan data barang
+    // buka modal edit dengan data barang
     public function edit(string|int $id): void
     {
         $service = new BarangService();
@@ -68,14 +68,14 @@ class BarangPage extends Component
         $this->showModal = true;
     }
 
-    // Tampilkan modal konfirmasi hapus
+    // tampilkan modal konfirmasi hapus
     public function showDeleteConfirm(string|int $id): void
     {
         $this->deleteId = (string) $id;
         $this->showDeleteModal = true;
     }
 
-    // Proses hapus barang
+    // proses hapus barang
     public function confirmDelete(): void
     {
         $service = new BarangService();
@@ -86,14 +86,14 @@ class BarangPage extends Component
         $this->loadData();
     }
 
-    // Batal hapus
+    // batal hapus
     public function cancelDelete(): void
     {
         $this->showDeleteModal = false;
         $this->deleteId = null;
     }
 
-    // Tutup modal dan reset form
+    // tutup modal dan reset form
     public function closeModal(): void
     {
         $this->showModal = false;
@@ -101,7 +101,7 @@ class BarangPage extends Component
         $this->form = ['name' => '', 'category' => '1', 'price' => '', 'unit' => 'pcs'];
     }
 
-    // Set flash message
+    // set flash message
     private function flash(string $message, string $type = 'success'): void
     {
         $this->flashMessage = $message;
@@ -109,7 +109,7 @@ class BarangPage extends Component
         $this->dispatch('flash-shown');
     }
 
-    // Filter barang berdasarkan pencarian
+    // filter barang berdasarkan pencarian
     #[Computed]
     public function filteredBarangs(): array
     {
@@ -117,7 +117,9 @@ class BarangPage extends Component
             return $this->barangs;
         }
 
-        return array_values(array_filter($this->barangs, fn($b) =>
+        return array_values(array_filter(
+            $this->barangs,
+            fn($b) =>
             str_contains(strtolower($b['name'] ?? ''), strtolower($this->search)) ||
             str_contains(strtolower($b['category_name'] ?? ''), strtolower($this->search))
         ));
