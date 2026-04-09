@@ -1,3 +1,27 @@
+**no. 2&3. function untuk mengetahui berapa banyak kata/words yang terdapat dalam suatu variable & menyisipkan satu kata/word ke dalam variable**
+
+/logic/no2-no3
+
+resources/views/logic/no2-no3.blade.php
+
+**no. 4. function pola segitiga: Input: Berapa banyak baris Output jika input diisi 5 baris, maka output harus menjadi segitiga**
+
+/logic/no4
+resources/views/logic/no4.blade.php
+
+**no. 5. Fungsi untuk mencari huruf yang sering muncul dalam sebuah kata.**
+
+/logic/no5
+
+resources/views/logic/no5.blade.php
+
+**no. 6. Fungsi untuk mengurutkan sebuah array**
+
+/logic/no6
+
+resources/views/logic/no6.blade.php
+
+
 **no. 7. arsitektur multi-instance laravel + livewire**
 
 **daftar file**
