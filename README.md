@@ -5,14 +5,23 @@
 
 no7/
 app/Jobs/
+
     ProcessImage.php
+
     NotifyImageReady.php
+
 config/
+
     session.php
+
     database.redis.php
+
 docs/
+
     supervisor/
+
         laravel-worker.conf
+
  README.md
 
 
